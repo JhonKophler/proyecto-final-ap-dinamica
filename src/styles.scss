@@ -1,1 +1,934 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    /*ColoresPredeterminado*/
+    /*------------------------------*/
+    /*ColoresPrincipales*/
+    --colorPrimario: #17bebb;
+    --colorSecundario: #cd5334;
+    /*------------------------------*/
+    /*ColorBlancoaNegroyDegrades*/
+    --colorBlanco: #f5f0f6;
+    --colorGris: #e1dee3;
+    --colorNegro: #2e282a;
+    --colorBlancoForm: #DADADA;
+    --colorGrisProgressBarBack: #B0B0B0;
+    --colorNegroDegrade1: #211c1e;
+    --colorNegroDegrade2: #211e20;
+    --colorDegradeNaranja: #41393c;
+    --colorDegradeBlanco: rgba(225, 225, 225, 0.5);
+    /*------------------------------*/
+    /*ColoresdeLetras*/
+    --colorLetraBlanca: var(--colorBlanco);
+    --colorLetraOscura: var(--colorNegro);
+    --colorLetraNegra: #000;
+    --colorFondoCelesteOscuro: #159492;
+    /*------------------------------*/
+    /*Detalles*/
+    --sombra: -0.5rem 0.3rem 0.2rem rgba(0, 0, 0, 0.25);
+    --sombraInterior: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25);
+    --anim: all 0.3s ease-out;
+    --colorCerrarCuadro: #e61919;
+    /*------------------------------*/
+    /*Configuraciones Globales*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    font-family: "Outfit", sans-serif;
+    font-size: 28px;
+    color: var(--colorLetraBlanca);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient( to bottom, var(--colorGris), var(--colorPrimario), var(--colorNegroDegrade1));
+    background-repeat: no-repeat;
+}
+
+nav {
+    border-radius: 0;
+    width: 100%;
+    height: 1.5rem;
+    padding: 0 0.5rem;
+    background-color: var(--colorPrimario);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: sticky;
+    z-index: 15;
+}
+
+section [id] {
+    scroll-margin-top: 1rem;
+}
+
+.no-scroll {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+
+/*--------------------------------------------------------------*/
+
+
+/* Configuraciones especificas de fuentes */
+
+h4 {
+    font-size: 0.6rem;
+    color: var(--colorLetraNegra);
+    margin: 0
+}
+
+
+/*--------------------------------------------------------------*/
+
+
+/* Caja Global */
+
+content {
+    position: relative;
+    top: -1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+}
+
+.ingresar {
+    background-color: rgba(0, 0, 0, 1);
+    display: flex;
+    position: absolute;
+    z-index: 30;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+    bottom: 5%;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    transition: .3s ease all;
+    opacity: 0;
+}
+
+.ingresar span {
+    text-align: center;
+}
+
+#card-login {
+    margin: 5vw;
+}
+
+#card-login button {
+    position: relative;
+}
+
+.ingresar .exit {
+    position: relative;
+    background-color: var(--colorCerrarCuadro);
+    color: #000;
+    align-items: center;
+    font-size: 0.5rem;
+    right: -10px;
+    top: -10px;
+    position: absolute;
+}
+
+.ingresar .exit:active {
+    background-color: var(--colorFondoCelesteOscuro);
+}
+
+
+/* Configuraciones Cajas */
+
+.contenedor-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contenedor-logo>h2 {
+    color: var(--colorLetraBlanca);
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.logo-arg {
+    width: 4rem;
+}
+
+.redes-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.redes {
+    padding: 0.1rem 0.5rem;
+}
+
+i {
+    width: 1.5rem;
+    align-items: center;
+    color: var(--colorBlanco);
+}
+
+#btn-disc>p {
+    display: none;
+}
+
+.redes>a {
+    background: 0;
+    padding: 0;
+}
+
+.redes-login p {
+    margin: 0;
+    font-size: 0.5rem;
+}
+
+.redes>a:hover {
+    background: 0;
+    padding: 0;
+}
+
+.fab:hover {
+    color: var(--colorNegro);
+    cursor: pointer;
+}
+
+.fab:active {
+    color: var(--colorSecundario);
+}
+
+a {
+    font-size: 0.5rem;
+    padding: 0.15rem 0.7rem;
+    text-align: center;
+    font-weight: 400;
+    color: var(--colorLetraBlanca);
+    background: var(--colorNegro);
+    border-radius: 0.6rem;
+    text-decoration: none;
+    transition: var(--anim);
+}
+
+a:hover {
+    background: var(--colorSecundario);
+    cursor: pointer;
+    color: var(--colorLetraBlanca);
+}
+
+a:active {
+    color: var(--colorPrimario);
+    background: var(--colorNegro);
+}
+
+.spinner-border {
+    width: 0px;
+    height: 0px;
+    display: none;
+    color: #FFD700;
+}
+
+
+/* -----------------------------*/
+
+
+/* Menu */
+
+menu {
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0.3rem;
+    left: 76%;
+    margin: 0.3rem;
+    z-index: 20;
+    width: 19%;
+}
+
+menu>a {
+    padding: 0.2rem 1.6rem;
+    font-weight: 300;
+}
+
+
+/* Botones Menu */
+
+.top {
+    border-radius: 1rem 0 0 1rem;
+    border-right: 0.09rem solid;
+}
+
+.mid {
+    border-color: var(--colorBlanco);
+    border-radius: 0;
+    border-left: 0.09rem solid;
+    border-right: 0.09rem solid;
+}
+
+.low {
+    border-radius: 0 1rem 1rem 0;
+    border-left: 0.09rem solid;
+}
+
+.top,
+.mid,
+.low {
+    background-color: var(--colorNegro);
+}
+
+
+/* Cajas Presentacion */
+
+.presentacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    width: 95%;
+}
+
+.card-contact {
+    top: 20px;
+    background: var(--colorBlanco);
+    width: 40%;
+    box-shadow: var(--sombra);
+    z-index: 5;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.informacion>h1,
+.informacion>span {
+    color: var(--colorLetraOscura);
+    font-size: 0.7rem;
+    padding: 0.1rem 0.5rem 0 0;
+}
+
+.informacion>h1,
+.card-bot>h3 {
+    margin-bottom: 1px;
+}
+
+.informacion {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+span {
+    font-weight: 300;
+}
+
+.card-bot {
+    display: flex;
+    flex-direction: column;
+    padding: 0.1rem 1rem 0.1rem 1.3rem;
+}
+
+h3,
+.pensamiento,
+label {
+    color: var(--colorLetraOscura);
+    font-size: 0.7rem;
+    padding: 0;
+    margin-bottom: 0.7rem;
+}
+
+.foto-perfil {
+    margin: 0.5rem 1rem;
+    width: 6rem;
+}
+
+.card-skills {
+    display: flex;
+    flex-direction: column;
+}
+
+.head-skills {
+    display: flex;
+    flex-direction: row;
+}
+
+.hard {
+    background-color: var(--colorGris);
+    border-radius: 0.8rem 0.8rem 0 0;
+    padding: 0.1rem;
+    width: 4.5rem;
+    text-align: center;
+    color: var(--colorNegro);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.hard:hover {
+    background-color: var(--colorNegro);
+    color: var(--colorLetraBlanca);
+    cursor: pointer;
+}
+
+.soft {
+    background-color: var(--colorNegro);
+    border-radius: 0.8rem 0.8rem 0 0;
+    padding: 0.1rem;
+    width: 4.5rem;
+    text-align: center;
+    color: var(--colorLetraBlanca);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.soft:hover {
+    background-color: var(--colorNegro);
+    color: var(--colorLetraBlanca);
+    cursor: pointer;
+}
+
+#card-hard {
+    background: var(--colorGris);
+    padding: 0.1rem 0.6rem 0.6rem 0.6rem;
+    border-radius: 0 1rem 1rem 1rem;
+    margin-bottom: 1.6rem
+}
+
+#card-soft {
+    display:none;
+    background: var(--colorGris);
+    padding: 0.1rem 0.6rem 0.6rem 0.6rem;
+    border-radius: 0 1rem 1rem 1rem;
+    margin-bottom: 1.6rem
+}
+
+.skill-front {
+    display: flex;
+    flex-direction: row;
+}
+
+.porcentaje {
+    margin-left: 0.5rem;
+}
+
+.progress {
+    background: var(--colorNegro);
+    border-radius: 1rem;
+    height: 0.7rem;
+    margin: 0.1rem;
+}
+
+.progress-bar {
+    background: var(--colorSecundario);
+}
+
+#card-soft .progress {
+    background: var(--colorGrisProgressBarBack);
+    border-radius: 1rem;
+    height: 0.7rem;
+    margin: 0.1rem;
+}
+
+#card-soft .progress-bar {
+    background: var(--colorPrimario);
+}
+
+
+/*--------------------------------------------*/
+
+
+/* Card Experiencias */
+
+.card-info {
+    width: 60%;
+    border-radius: 0 1rem 1rem 0;
+    background-image: url('https://github.com/JhonKophler/src-img-proyect-final/blob/master/banner2.jpg?raw=true');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    margin: 1rem 0;
+    box-shadow: var(--sombra);
+    z-index: 3;
+}
+
+.color-back {
+    width: 100%;
+    background-color: rgba(23, 190, 187, 0.5);
+    border-radius: 0 1rem 1rem 0;
+}
+
+.box-width {
+    margin: 1rem;
+}
+
+.box-width>h3 {
+    margin: 0.2rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.content-works {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-works>i {
+    color: var(--colorLetraNegra);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.elementos__slider {
+    display: flex;
+}
+
+.content-works>i:hover {
+    cursor: pointer;
+    color: var(--colorBlanco);
+}
+
+.elemento {
+    width: 50%;
+    background: var(--colorDegradeBlanco);
+    border-radius: 0 1.5rem 0 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.3rem;
+}
+
+.elemento:hover {
+    box-shadow: var(--sombra);
+    transition: var(--anim);
+    cursor: pointer;
+    background-color: var(--colorBlanco);
+}
+
+.imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-work {
+    width: 5rem;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem;
+}
+
+.content-separador {
+    background-color: var(--colorLetraNegra);
+    width: 0.18rem;
+    height: 75%;
+    border-radius: 0;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem 0 0.5rem;
+}
+
+.info>h5 {
+    font-size: 0.8rem;
+    color: var(--colorLetraNegra);
+    margin: 0;
+    font-weight: 400;
+}
+
+.info>span {
+    font-size: 0.6rem;
+    color: var(--colorLetraNegra);
+    margin: 0;
+    font-weight: 300;
+}
+
+.estudios {
+    padding: 0rem 1rem;
+}
+
+.img-cur>img {
+    width: 3rem;
+}
+
+
+/*------------------------------------------*/
+
+
+/* Proyectos */
+
+#mid {
+    background: linear-gradient( to bottom, var(--colorSecundario), var(--colorDegradeNaranja));
+    width: 90%;
+    border-radius: 0 0 1rem 1rem;
+    position: relative;
+    top: -1rem;
+    padding: 1rem;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mid>a {
+    font-size: 1rem;
+    background: none;
+}
+
+#mid a:hover {
+    border-radius: 0;
+    cursor: pointer;
+    background: linear-gradient( to bottom, var(--colorSecundario), var(--colorDegradeNaranja));
+}
+
+.content-proyect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-first {
+    width: 60%;
+    border-radius: 0;
+    box-shadow: var(--sombra);
+}
+
+.thumb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1% 0;
+}
+
+.thumbnails {
+    width: 15%;
+    margin: 1%;
+}
+
+.thumbnails:hover {
+    cursor: pointer;
+    border-radius: 0;
+    box-shadow: var(--sombra);
+    transition: var(--anim);
+}
+
+.proyectos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    word-wrap: break-word;
+}
+
+.elemento-proyecto>h6 {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+}
+
+.elemento-proyecto {
+    background-color: #bf5035;
+    padding: 0.3rem;
+    box-shadow: var(--sombra);
+    margin: 0.3rem;
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+.elemento-proyecto:hover {
+    background-color: var(--colorNegro);
+    cursor: pointer;
+    transition: var(--anim);
+}
+
+.info-desarrollo {
+    font-size: 0.56rem;
+    font-weight: lighter;
+    justify-content: center;
+    width: 90%;
+    line-height: 0.7rem;
+    text-align: center;
+}
+
+
+/*----------------------------------*/
+
+
+/* Formulario de Contacto */
+
+.formulario-contacto {
+    background-color: var(--colorNegro);
+    display: flex;
+    align-items: center;
+    width: 75%;
+    justify-content: space-evenly;
+}
+
+.message-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 1rem;
+}
+
+.message-section p {
+    margin: 1%;
+    font-size: 80%;
+    text-align: center;
+    font-weight: lighter;
+    margin: 1rem;
+}
+
+.message-section>img {
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.email-section {
+    width: 50%;
+    margin: 1rem;
+}
+
+.form-group,
+.mb-2 {
+    display: flex;
+    margin: 0.5rem;
+}
+
+.form-control {
+    font-size: 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--colorBlancoForm);
+    box-shadow: inset var(--sombraInterior);
+}
+
+.text-padre {
+    position: relative;
+    width: 100%;
+}
+
+#textarea {
+    height: 6rem;
+    resize: none;
+}
+
+.btn {
+    display: flex;
+    height: 2rem;
+    width: 2rem;
+    background-color: var(--colorPrimario);
+    color: var(--colorNegro);
+    border-width: 0.15rem;
+    border-color: var(--colorNegro);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    right: -10px;
+    bottom: -10px;
+    position: absolute;
+}
+
+.btn:hover {
+    background-color: var(--colorNegro);
+    border-width: 0;
+}
+
+.btn:active {
+    background-color: var(--colorSecundario);
+    border-width: 0;
+}
+
+footer {
+    background: linear-gradient( to bottom, var(--colorNegroDegrade1), var(--colorNegroDegrade2));
+    width: 50%;
+    margin: 1rem;
+    text-align: center;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+}
+
+.madeBy {
+    font-size: 55%;
+    font-weight: lighter;
+}
+
+.subir {
+    background-color: var(--colorNegroDegrade2);
+    font-size: 0.5rem;
+    padding: 0.3rem;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: 0.5rem;
+    z-index: 1;
+}
+
+.subir:hover {
+    cursor: pointer;
+    background-color: var(--colorFondoCelesteOscuro);
+    transition: var(--anim);
+    padding: 0.3rem;
+}
+
+
+/* MAXIMO 800 */
+
+@media (max-width:800px) {
+    * {
+        font-size: 23px;
+    }
+    menu>a {
+        padding: 0.1rem 1rem;
+        font-weight: 300;
+    }
+    .contenedor-logo>h2 {
+        display: none;
+    }
+    .presentacion {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+    .card-contact {
+        width: 100%;
+        border-radius: 0;
+    }
+    .card-top {
+        margin: 1rem 0.5rem 0.5rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .foto-perfil {
+        width: 10rem;
+        border-radius: 7rem;
+        border: 0.4rem solid var(--colorSecundario);
+        padding: 0.1rem;
+    }
+    .informacion {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        text-align: start;
+    }
+    .card-info {
+        width: 100%;
+        border-radius: 0;
+    }
+    .color-back {
+        border-radius: 0;
+    }
+    .content-works {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .elemento {
+        display: flex;
+        margin: 0.3rem;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        border-radius: 1rem;
+    }
+    .box-width>h3 {
+        text-align: center;
+    }
+    .imagen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo-work {
+        width: 5rem;
+        height: 5rem;
+    }
+    .content-separador {
+        display: none;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        align-items: center;
+        text-align: center;
+    }
+    .img-cur>img {
+        width: 3rem;
+        height: 3rem;
+    }
+    .elemento-proyecto {
+        width: 100%;
+    }
+    .img-first {
+        width: 100%;
+    }
+    .thumbnails {
+        width: 22%;
+        margin: 1%;
+        border-radius: 0;
+    }
+    #mid {
+        width: 100%;
+    }
+    #mid>a {
+        margin-top: 3%;
+    }
+    .formulario-contacto {
+        flex-direction: column;
+        width: 100%;
+    }
+    .message-section {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .email-section {
+        width: 95%;
+        margin: 1rem;
+        margin-top: 0;
+    }
+    footer {
+        width: 85%;
+        margin: 0.3rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .presentacion {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+}
